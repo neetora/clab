@@ -1,0 +1,15 @@
+# topology documentation: http://containerlab.dev/lab-examples/srl-ceos/
+name: aoscx-lab
+
+topology:
+  nodes:
+    coresw1:
+      kind: vr-aoscx
+      image: vrnetlab/vr-aoscx:20200311173823
+    coresw2:
+      kind: vr-aoscx
+      image: vrnetlab/vr-aoscx:20200311173823
+
+  links:
+  # ISL on port 9
+    - endpoints: ["coresw1:eth9", "coresw2:eth9"]
