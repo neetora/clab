@@ -1,9 +1,9 @@
-! Startup-config last modified at Sat Sep 21 14:38:31 2024 by root
+! Startup-config last modified at Sat Sep 21 14:51:04 2024 by root
 ! device: spine2 (cEOSLab, EOS-4.32.1F-37265360.4321F (engineering build))
 !
 no aaa root
 !
-username admin privilege 15 role network-admin secret sha512 $6$J7b5ycL1BSuF3BCM$fOzjO8Vx4xWEb25yMIPOmgIZxTwEKLbM3LXbXzhaX4nOMD6N5jyN2/PwhdOanZ2s.s0iRaG7X1H4kKHBm1PrN0
+username admin privilege 15 role network-admin secret sha512 $6$EhUk50Jz7fB/Sc71$wSWP.GYOWZEC9PZ8JjO/6W10YdHQvsfH6l/QwRIUK7BdHbvorTnuPRF1WCaaeQTaETNpYpccuq5GgrYgS.r5k0
 !
 transceiver qsfp default-mode 4x10G
 !
@@ -25,12 +25,19 @@ interface Loopback0
    ip address 192.0.2.2/32
 !
 interface Management0
-   ip address 172.20.20.5/24
-   ipv6 address 2001:172:20:20::5/64
+   ip address 172.20.20.2/24
+   ipv6 address 2001:172:20:20::2/64
+!
+interface Vxlan1
+   vxlan source-interface Loopback0
+   vxlan udp-port 4789
 !
 no ip routing
 !
 router bgp 65002
+   neighbor 192.0.2.3 remote-as 65003
+   neighbor 192.0.2.4 remote-as 65004
+   !
    vni-aware-bundle 10020
       route-target import 65002:10020
       route-target export 65002:10020

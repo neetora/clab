@@ -1,9 +1,9 @@
-! Startup-config last modified at Sat Sep 21 14:38:34 2024 by root
+! Startup-config last modified at Sat Sep 21 14:51:05 2024 by root
 ! device: leaf1 (cEOSLab, EOS-4.32.1F-37265360.4321F (engineering build))
 !
 no aaa root
 !
-username admin privilege 15 role network-admin secret sha512 $6$DIk74tQli5g/egId$EnzS.E4ob/KGBiPF2zKsWOGbhsKQ8b99iwpogv6qaJyUgLke2amXvJQvQzh.Ml12CXAvFzwBSJJ8rUTAzn/dY/
+username admin privilege 15 role network-admin secret sha512 $6$cjlovbJ0i0XKQEpa$nwXRzZe6wTYt5/agVf3XbhKyl9FAIENLiSmYvJM2z6.0omrOgE.vTQ2BtlY7ArL3mY1tBkfN/V3rPqZSQcaaD/
 !
 transceiver qsfp default-mode 4x10G
 !
@@ -28,8 +28,12 @@ interface Loopback0
    ip address 192.0.2.3/32
 !
 interface Management0
-   ip address 172.20.20.2/24
-   ipv6 address 2001:172:20:20::2/64
+   ip address 172.20.20.3/24
+   ipv6 address 2001:172:20:20::3/64
+!
+interface Vxlan1
+   vxlan source-interface Loopback0
+   vxlan udp-port 4789
 !
 no ip routing
 !
