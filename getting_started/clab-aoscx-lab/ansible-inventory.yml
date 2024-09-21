@@ -12,6 +12,10 @@ all:
         ansible_password: admin
       hosts:
         clab-aoscx-lab-coresw1:
-          ansible_host: 172.20.20.2
+          ansible_host: 172.20.20.5
         clab-aoscx-lab-coresw2:
+          ansible_host: 172.20.20.4
+        clab-aoscx-lab-edgesw1:
           ansible_host: 172.20.20.3
+        clab-aoscx-lab-edgesw2:
+          ansible_host: 172.20.20.2
