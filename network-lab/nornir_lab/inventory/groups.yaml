@@ -1,0 +1,4 @@
+# inventory/groups.yaml
+switch:
+  username: admin
+  password: admin  # Replace with your password

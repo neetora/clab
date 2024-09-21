@@ -1,0 +1,15 @@
+name: network_lab
+topology:
+  nodes:
+    core:
+      kind: ceos
+      image: ceos:4.32.1F
+    access1:
+      kind: ceos
+      image: ceos:4.32.1F
+    access2:
+      kind: ceos
+      image: ceos:4.32.1F
+  links:
+    - endpoints: ["core:eth1", "access1:eth1"]
+    - endpoints: ["core:eth2", "access2:eth1"]
