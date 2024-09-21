@@ -14,7 +14,7 @@ all:
         clab-evpn-vxlan-aruba-arista-accesssw1:
           ansible_host: 172.20.20.2
         clab-evpn-vxlan-aruba-arista-accesssw2:
-          ansible_host: 172.20.20.4
+          ansible_host: 172.20.20.3
     vr-aoscx:
       vars:
         # ansible_connection: set ansible_connection variable if required
@@ -24,4 +24,4 @@ all:
         clab-evpn-vxlan-aruba-arista-coresw1:
           ansible_host: 172.20.20.5
         clab-evpn-vxlan-aruba-arista-coresw2:
-          ansible_host: 172.20.20.3
+          ansible_host: 172.20.20.4
