@@ -1,0 +1,44 @@
+! Startup-config last modified at Sat Sep 21 14:38:34 2024 by root
+! device: leaf1 (cEOSLab, EOS-4.32.1F-37265360.4321F (engineering build))
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$DIk74tQli5g/egId$EnzS.E4ob/KGBiPF2zKsWOGbhsKQ8b99iwpogv6qaJyUgLke2amXvJQvQzh.Ml12CXAvFzwBSJJ8rUTAzn/dY/
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname leaf1
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+vlan 10
+   name VLAN10
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Loopback0
+   ip address 192.0.2.3/32
+!
+interface Management0
+   ip address 172.20.20.2/24
+   ipv6 address 2001:172:20:20::2/64
+!
+no ip routing
+!
+router bgp 65003
+   neighbor 192.0.2.1 remote-as 65001
+   neighbor 192.0.2.2 remote-as 65002
+   !
+   vni-aware-bundle 10010
+      route-target import 65003:10010
+      route-target export 65003:10010
+!
+end

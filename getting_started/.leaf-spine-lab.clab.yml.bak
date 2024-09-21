@@ -1,0 +1,26 @@
+name: leaf-spine-lab
+
+topology:
+  nodes:
+    spine1:
+      kind: ceos
+      image: ceos:4.32.1F
+      startup-config: spine1.cfg
+    spine2:
+      kind: ceos
+      image: ceos:4.32.1F
+      startup-config: spine2.cfg
+    leaf1:
+      kind: ceos
+      image: ceos:4.32.1F
+      startup-config: leaf1.cfg
+    leaf2:
+      kind: ceos
+      image: ceos:4.32.1F
+      startup-config: leaf2.cfg
+
+  links:
+    - endpoints: ["leaf1:eth1", "spine1:eth1"]
+    - endpoints: ["leaf1:eth2", "spine2:eth1"]
+    - endpoints: ["leaf2:eth1", "spine1:eth2"]
+    - endpoints: ["leaf2:eth2", "spine2:eth2"]

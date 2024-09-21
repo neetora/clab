@@ -1,0 +1,38 @@
+! Startup-config last modified at Sat Sep 21 14:38:31 2024 by root
+! device: spine2 (cEOSLab, EOS-4.32.1F-37265360.4321F (engineering build))
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$J7b5ycL1BSuF3BCM$fOzjO8Vx4xWEb25yMIPOmgIZxTwEKLbM3LXbXzhaX4nOMD6N5jyN2/PwhdOanZ2s.s0iRaG7X1H4kKHBm1PrN0
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname spine2
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Loopback0
+   ip address 192.0.2.2/32
+!
+interface Management0
+   ip address 172.20.20.5/24
+   ipv6 address 2001:172:20:20::5/64
+!
+no ip routing
+!
+router bgp 65002
+   vni-aware-bundle 10020
+      route-target import 65002:10020
+      route-target export 65002:10020
+!
+end
