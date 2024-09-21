@@ -1,0 +1,43 @@
+! Startup-config last modified at Sat Sep 21 12:04:51 2024 by root
+! device: edgesw1 (cEOSLab, EOS-4.32.1F-37265360.4321F (engineering build))
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$diinl86FDe.jHQNw$9hVZAw6rWik1B3uZt1e7lqg9mCpDDQ83djpW9xXReL00wz5bJWPV8l6crfG/MCC3j6Sc08f.GEzuPzJUcGV4I.
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname edgesw1
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+management api http-commands
+   no shutdown
+!
+management api gnmi
+   transport grpc default
+!
+management api netconf
+   transport ssh default
+!
+interface Ethernet1
+!
+interface Ethernet9
+!
+interface Management0
+   ip address 172.20.20.3/24
+   ipv6 address 2001:172:20:20::3/64
+!
+no ip routing
+!
+ip route 0.0.0.0/0 172.20.20.1
+!
+ipv6 route ::/0 2001:172:20:20::1
+!
+end
