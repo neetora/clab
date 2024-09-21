@@ -12,11 +12,11 @@ topology:
       startup-config: coresw2.cfg
     accesssw1:
       kind: ceos
-      image: ceos-lab:4.25.0F
+      image: ceos:4.32.1F
       startup-config: accesssw1.cfg
     accesssw2:
       kind: ceos
-      image: ceos-lab:4.25.0F
+      image: ceos:4.32.1F
       startup-config: accesssw2.cfg
 
   links:
