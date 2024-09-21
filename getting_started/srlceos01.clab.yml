@@ -1,4 +1,4 @@
-name: aoscx-lab
+name: aoscx-evpn-vxlan-core-access-lab
 
 topology:
   nodes:
@@ -10,15 +10,17 @@ topology:
       kind: vr-aoscx
       image: vrnetlab/vr-aoscx:20200311173823
       startup-config: coresw2.cfg
-    edgesw1:
-      kind: ceos
-      image: ceos:4.32.1F
-    edgesw2:
-      kind: ceos
-      image: ceos:4.32.1F
+    accesssw1:
+      kind: vr-aoscx
+      image: vrnetlab/vr-aoscx:20200311173823
+      startup-config: accesssw1.cfg
+    accesssw2:
+      kind: vr-aoscx
+      image: vrnetlab/vr-aoscx:20200311173823
+      startup-config: accesssw2.cfg
 
   links:
-    - endpoints: ["coresw1:eth9", "coresw2:eth9"]
-    - endpoints: ["coresw1:eth1", "edgesw1:eth1"]
-    - endpoints: ["coresw2:eth1", "edgesw2:eth1"]
-    - endpoints: ["edgesw1:eth9", "edgesw2:eth9"]
+    - endpoints: ["coresw1:eth9", "coresw2:eth9"] # ISL between core switches
+    - endpoints: ["coresw1:eth1", "accesssw1:eth1"] # Core 1 to Access 1
+    - endpoints: ["coresw2:eth1", "accesssw2:eth1"] # Core 2 to Access 2
+    - endpoints: ["accesssw1:eth9", "accesssw2:eth9"] # Link between access switches
