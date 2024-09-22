@@ -58,7 +58,38 @@ def enable_dhcp_snooping(task):
     ])
 
 if __name__ == "__main__":
-    nr = InitNornir(config_file="config.yaml")
+    nr = InitNornir()
+    nr.inventory = {
+        "hosts": {
+            "core": {
+                "hostname": "core",
+                "platform": "arista",
+                "groups": ["switch"],
+                "username": "admin",
+                "password": "admin",  # Replace with your actual password
+            },
+            "access1": {
+                "hostname": "access1",
+                "platform": "arista",
+                "groups": ["switch"],
+                "username": "admin",
+                "password": "admin",
+            },
+            "access2": {
+                "hostname": "access2",
+                "platform": "arista",
+                "groups": ["switch"],
+                "username": "admin",
+                "password": "admin",
+            },
+        },
+        "groups": {
+            "switch": {
+                "username": "admin",
+                "password": "admin",  # Replace with your actual password
+            }
+        }
+    }
     nr.run(task=configure_vlan)
     nr.run(task=enable_dot1x)
     nr.run(task=enable_dhcp_snooping)
