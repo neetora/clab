@@ -1,15 +1,31 @@
-name: network_lab
+name: dhcp_arp_inspection
+
+mgmt:
+  network: mgmt
+  ipv4-subnet: 192.168.100.0/24
+
 topology:
+  kinds:
+    ceos:
+      image: ceos:4.32.1F
   nodes:
-    core:
+    switch1:
       kind: ceos
-      image: ceos:4.32.1F
-    access1:
+      mgmt-ipv4: 192.168.100.11
+    switch2:
       kind: ceos
-      image: ceos:4.32.1F
-    access2:
-      kind: ceos
-      image: ceos:4.32.1F
+      mgmt-ipv4: 192.168.100.12
+    dhcp_server:
+      kind: linux
+      mgmt-ipv4: 192.168.100.13
+    host_trusted:
+      kind: linux
+      mgmt-ipv4: 192.168.100.14
+    host_untrusted:
+      kind: linux
+      mgmt-ipv4: 192.168.100.15
   links:
-    - endpoints: ["core:eth1", "access1:eth1"]
-    - endpoints: ["core:eth2", "access2:eth1"]
+    - endpoints: ["switch1:eth1", "switch2:eth1"]
+    - endpoints: ["switch1:eth2", "dhcp_server:eth0"]
+    - endpoints: ["switch2:eth2", "host_trusted:eth0"]
+    - endpoints: ["switch2:eth3", "host_untrusted:eth0"]
