@@ -1,0 +1,13 @@
+name: vss_lab
+
+topology:
+  kinds:
+    ceos:
+      image: ceos:4.32.1F
+  nodes:
+    switch1:
+      kind: ceos
+      mgmt-ipv4: 172.20.20.2
+    switch2:
+      kind: ceos
+      mgmt-ipv4: 172.20.20.3

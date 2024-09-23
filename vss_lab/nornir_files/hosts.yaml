@@ -1,0 +1,9 @@
+---
+switch1:
+  hostname: 172.20.20.2
+  groups:
+    - arista
+switch2:
+  hostname: 172.20.20.3
+  groups:
+    - arista

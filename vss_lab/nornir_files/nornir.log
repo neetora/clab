@@ -1,0 +1,67 @@
+2024-09-23 11:32:01,703 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['switch virtual', 'switch virtual mac-address 00:11:22:33:44:55', 'interface Ethernet1/1', 'switchport mode trunk', 'switchport trunk allowed vlan all', 'interface Ethernet1/2', 'switchport mode access', 'switchport access vlan 10']} on 2 hosts
+2024-09-23 11:32:01,711 - nornir.core.task -    ERROR -      start() - Host 'switch2': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 390, in ConnectHandler
+    device_type = kwargs["device_type"]
+KeyError: 'device_type'
+
+2024-09-23 11:32:01,712 - nornir.core.task -    ERROR -      start() - Host 'switch1': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 390, in ConnectHandler
+    device_type = kwargs["device_type"]
+KeyError: 'device_type'
+
+2024-09-23 11:33:13,966 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['switch virtual', 'switch virtual mac-address 00:11:22:33:44:55', 'interface Ethernet1/1', 'switchport mode trunk', 'switchport trunk allowed vlan all', 'interface Ethernet1/2', 'switchport mode access', 'switchport access vlan 10']} on 2 hosts
+2024-09-23 11:33:13,968 - nornir.core.task -    ERROR -      start() - Host 'switch2': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 390, in ConnectHandler
+    device_type = kwargs["device_type"]
+KeyError: 'device_type'
+
+2024-09-23 11:33:13,969 - nornir.core.task -    ERROR -      start() - Host 'switch1': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/usr/local/python/3.10.13/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 390, in ConnectHandler
+    device_type = kwargs["device_type"]
+KeyError: 'device_type'
+
+2024-09-23 11:35:22,200 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['switch virtual', 'switch virtual mac-address 00:11:22:33:44:55', 'interface Ethernet1/1', 'switchport mode trunk', 'switchport trunk allowed vlan all', 'interface Ethernet1/2', 'switchport mode access', 'switchport access vlan 10']} on 2 hosts

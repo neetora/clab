@@ -1,0 +1,9 @@
+arista:
+  connection_options:
+    netmiko:
+      platform: arista_eos  # This tells Netmiko what device type to expect
+    napalm:
+      platform: eos
+      extras:
+        optional_args:
+          transport: ssh

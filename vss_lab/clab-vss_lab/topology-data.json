@@ -1,0 +1,81 @@
+{
+  "name": "vss_lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-bea13ad88690",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "2001:172:20:20::/64",
+        "ipv6-gw": "2001:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "switch1": {
+      "index": "0",
+      "shortname": "switch1",
+      "longname": "clab-vss_lab-switch1",
+      "fqdn": "switch1.vss_lab.io",
+      "group": "",
+      "labdir": "/workspaces/clab/vss_lab/clab-vss_lab/switch1",
+      "kind": "ceos",
+      "image": "ceos:4.32.1F",
+      "mgmt-net": "",
+      "mgmt-intf": "Management0",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "00:1c:73:a1:33:8a",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-bea13ad88690",
+        "clab-node-group": "",
+        "clab-node-kind": "ceos",
+        "clab-node-lab-dir": "/workspaces/clab/vss_lab/clab-vss_lab/switch1",
+        "clab-node-name": "switch1",
+        "clab-node-type": "",
+        "clab-topo-file": "/workspaces/clab/vss_lab/vss_lab.clab.yml",
+        "containerlab": "vss_lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "switch2": {
+      "index": "1",
+      "shortname": "switch2",
+      "longname": "clab-vss_lab-switch2",
+      "fqdn": "switch2.vss_lab.io",
+      "group": "",
+      "labdir": "/workspaces/clab/vss_lab/clab-vss_lab/switch2",
+      "kind": "ceos",
+      "image": "ceos:4.32.1F",
+      "mgmt-net": "",
+      "mgmt-intf": "Management0",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "00:1c:73:38:8f:45",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-bea13ad88690",
+        "clab-node-group": "",
+        "clab-node-kind": "ceos",
+        "clab-node-lab-dir": "/workspaces/clab/vss_lab/clab-vss_lab/switch2",
+        "clab-node-name": "switch2",
+        "clab-node-type": "",
+        "clab-topo-file": "/workspaces/clab/vss_lab/vss_lab.clab.yml",
+        "containerlab": "vss_lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+  ]
+}
