@@ -9,10 +9,10 @@ nr = InitNornir(config_file="config.yaml")
 commands = [
     "switch virtual",
     "switch virtual mac-address 00:11:22:33:44:55",
-    "interface Ethernet1/1",
+    "interface Ethernet1",
     "switchport mode trunk",
     "switchport trunk allowed vlan all",
-    "interface Ethernet1/2",
+    "interface Ethernet2",
     "switchport mode access",
     "switchport access vlan 10",
 ]
